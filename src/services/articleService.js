@@ -20,7 +20,13 @@ class ArticleService {
       .then(({ data }) => data)
       .catch((err) => console.error(err));
   }
+
+  getArticle(id) {
+    return this.api.get(`/${id}`).then(({ data }) => data).catch(err => console.error(err))
+  }
 }
+
+
 
 const articleService = new ArticleService();
 
