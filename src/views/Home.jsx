@@ -17,16 +17,19 @@ export default function Home() {
     getArticles();
   }, []);
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   return (
     <div>
-      <h1>Homesasas</h1>
       <ul>
         {articles.map((elem) => (
           <li key={elem._id}>
-            <p>{elem.product.image}</p>
-            <p>Price: {elem.price}</p>
-            <p>Supermarket: {elem.supermarket.name}</p>
-            <p>Product: {elem.product.name}</p>
+            <img src={elem.product.image} alt="" />
+            <p>{elem.price} € </p>
+            <p>{capitalizeFirstLetter(elem.supermarket.name)}</p>
+            <p>{elem.product.name}</p>
           </li>
         ))}
       </ul>
